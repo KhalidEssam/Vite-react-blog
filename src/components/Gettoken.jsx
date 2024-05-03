@@ -3,7 +3,6 @@ import { useLocation } from 'react-router-dom';
 
 const AuthCallbackPage = () => {
     const location = useLocation();
-    console.log("hello");
 
     useEffect(() => {
         // Function to extract token from URL

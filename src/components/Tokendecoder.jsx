@@ -32,10 +32,8 @@ import {jwtDecode} from 'jwt-decode'; // Import jwt_decode function from jwt-dec
 const DecodeToken = ({ accessToken }) => {
     const decodeToken = async () => {
         try {
-            console.log('Access Token:', accessToken);
             // Await the decoding process
             const decodedToken = await jwtDecode(accessToken);
-            console.log('Decoded Access Token:', decodedToken);
         } catch (error) {
             console.error(error);
         }

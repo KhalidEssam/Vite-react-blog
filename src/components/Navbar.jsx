@@ -1,11 +1,10 @@
 import React, { useState, useEffect }from 'react';
-import { createTheme } from '@mui/material'; // Import ThemeProvider and createTheme
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
-import { makeStyles ,ThemeProvider} from '@mui/styles';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
 import UseStyles from '../scss/styles'
-import DecodeToken from './Tokendecoder';
+import { useDispatch , useSelector } from 'react-redux';
+import { fetchUserSuccess } from '../reduxstore/actions/userActions';
 
 
 
@@ -21,17 +20,6 @@ import { CiLogout } from "react-icons/ci";
 import HomePage from '../pages/Home';
 import Blog from '../pages/Blog';
 import About from '../pages/About';
-
-
-
-const Home = () => {
-return (
-<div>
-    <h1>Home</h1>
-</div>
-);
-};
-
 
 
 const LogoutButton = () => {
@@ -52,6 +40,9 @@ return (
 const Navbar = () => {
     const [accessToken, setAccessToken] = useState(null);
     const  user  = useAuth0();
+    const dispatch = useDispatch();
+    const UserStore = useSelector(state => state.user);
+
 
     const LoginButton = () => {
 
@@ -61,6 +52,7 @@ const Navbar = () => {
             const fetchAccessToken = async () => {
             try {
                 const token = await getAccessTokenSilently();
+                dispatch(fetchUserSuccess({ name: user.user.name, email: user.user.email }));
                 setAccessToken(token);
             } catch (error) {
                 console.error('Error fetching access token:', error);
@@ -76,18 +68,20 @@ const Navbar = () => {
         </Button></>
     };
 
-    console.log(user?.user?.email_verified)
+
 
     const classes = UseStyles() 
+
+
     return (
         <Router>
 
         <AppBar position="static">
         <Toolbar>
             <Typography variant="h6" className={classes.title}>
-                My Blog 
+                {/* My Blog  */}
+                {user.isAuthenticated  && "Hello Mr" + " " +UserStore.user?.email }
 
-                Hello Mr {user?.user?.email }
             </Typography>
             
             <div className={classes.leftButtons}>

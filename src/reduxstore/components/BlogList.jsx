@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
 
-const BlogList = ({ posts, loading, error, fetchBlogPosts }) => {
-    useEffect(() => {
-        fetchBlogPosts();
-    }, [fetchBlogPosts]);
+const BlogList = ({ posts, loading, error }) => {
+
 
     if (loading) {
         return <div>Loading...</div>;
@@ -19,6 +17,8 @@ const BlogList = ({ posts, loading, error, fetchBlogPosts }) => {
                 <div key={post.id}>
                     <h2>{post.title}</h2>
                     <p>{post.body}</p>
+                    <p>Author: {post.author}</p>
+                    <p>Email: {post.email}</p>
                 </div>
             ))}
         </div>

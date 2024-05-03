@@ -1,4 +1,4 @@
-import { FETCH_BLOG_POSTS_SUCCESS, FETCH_BLOG_POSTS_FAILURE } from '../actions/blogActions';
+import { FETCH_BLOG_POSTS_SUCCESS, FETCH_BLOG_POSTS_FAILURE, FETCH_BLOG_POSTS_REQUEST } from '../actions/blogActionsTypes';
 
 const initialState = {
     posts: [],
