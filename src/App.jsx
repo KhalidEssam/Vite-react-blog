@@ -8,7 +8,7 @@ const theme = createTheme(); // Define your theme object
 
 
 const App = () => {
-
+  console.log(import.meta.env)
   return (
     <>
     <ThemeProvider theme={theme}> 

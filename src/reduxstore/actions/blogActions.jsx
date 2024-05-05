@@ -32,7 +32,10 @@ payload: error
 
         if (posts.length > 0) {
             dispatch(fetchBlogPostsSuccess(posts));
-        } else {
+        } else if (email == null) {
+            dispatch(fetchBlogPostsFailure("plz sign in to retirve your posts and people engamgments."));
+        }
+        else {
             dispatch(fetchBlogPostsFailure("No posts found for the provided email."));
         }
         }, 1000); // Simulate 1 second delay

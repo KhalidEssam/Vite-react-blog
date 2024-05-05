@@ -5,10 +5,17 @@ import { Buffer } from 'buffer'; // Import Buffer from the buffer package
 import App from './App'; // Import App component
 import store from './reduxstore/store';
 import { Provider } from 'react-redux';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 // Set Buffer as a global variable
 global.Buffer = Buffer;
+
+
+const auth0Domain = import.meta.env.VITE_AUTH0_DOMAIN
+const auth0ClientId = import.meta.env.VITE_AUTH0_CLIENT_ID;
+
+console.log(auth0Domain, auth0ClientId);
 
 ReactDOM.render(
   <Provider store={store}>

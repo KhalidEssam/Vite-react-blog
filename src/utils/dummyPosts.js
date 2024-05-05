@@ -1,5 +1,42 @@
 // Dummy blog posts data
 export const dummyPosts = [
+    {
+        id: 1,
+        title: "First Blog Post",
+        body: "This is the content of the first blog post.",
+        author: "John Smith",
+        email: "khaledesam033@gmail.com",
+        images: [
+            "https://th.bing.com/th/id/OIP.Hn648zyvFZQYyBWkUpu-lwHaE8?rs=1&pid=ImgDetMain",
+            "https://th.bing.com/th/id/OIP.OQ2a7bMLjXVLpRcFIO_xEQHaIE?pid=ImgDet&w=474&h=516&rs=1"
+        ],
+        comments: [
+            {
+                id: 101,
+                body: "Great post!",
+                author: "Alice Johnson"
+            },
+            {
+                id: 102,
+                body: "I enjoyed reading this.",
+                author: "Bob Williams"
+            }
+        ]
+    },
+    {
+        id: 2,
+        title: "Second Blog Post",
+        body: "This is the content of the second blog post.",
+        author: "Emily Davis",
+        email: "emily@example.com",
+        comments: [
+            {
+                id: 103,
+                body: "Interesting!",
+                author: "Charlie Brown"
+            }
+        ]
+    },
     
     {
         id: 1,
